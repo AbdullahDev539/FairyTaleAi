@@ -1,97 +1,90 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# FairyTaleAi
 
-# Getting Started
+This is a React Native project created with **React Native CLI**.  
+Follow the steps below to run the app on Android or iOS.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## Getting Started
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### Prerequisites
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Before running the project, make sure you have the following installed:
 
-```sh
+- [Node.js (LTS version)](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+- [Java JDK 11+](https://adoptium.net/) (for Android build)
+- [Android Studio](https://developer.android.com/studio) (Android development)
+- [Xcode](https://developer.apple.com/xcode/) (for iOS development, macOS only)
+- [CocoaPods](https://cocoapods.org/) (for iOS dependencies)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup)
+
+---
+
+## Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repo-link>
+   cd MyReactNativeApp
+   ```
+2. Install dependencies # Using npm
+   npm install
+
+# OR using Yarn
+
+yarn install
+
+# Running the App
+
+Step 1: Start Metro (bundler)
+
 # Using npm
+
 npm start
 
 # OR using Yarn
+
 yarn start
-```
+Step 2: Run on Android
+1.Open Android Studio → Install required SDKs (Android 13 / API 33 recommended).
 
-## Step 2: Build and run your app
+2.Start an Android Emulator OR connect a real Android device (USB debugging ON).
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+3.In a new terminal, run:
 
-### Android
-
-```sh
 # Using npm
+
 npm run android
 
 # OR using Yarn
+
 yarn android
-```
+Step 3: Run on iOS (macOS only)
+1.Install CocoaPods dependencies:
+cd ios
+pod install
+cd ..
+2.Start the Metro bundler (if not already running):
+npm start
+3.In a new terminal, run:
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
 # Using npm
+
 npm run ios
 
 # OR using Yarn
+
 yarn ios
-```
+The app will launch in the iOS Simulator (or a connected iPhone if configured).
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+🔧 Troubleshooting
+1.If the build fails, try cleaning dependencies:
+rm -rf node_modules
+npm install
+cd android && ./gradlew clean && cd ..
+2.Make sure your emulator/simulator is running before executing run-android or run-ios.
+3.On iOS, if you face issues, try updating pods:
+cd ios
+pod update
+cd ..
