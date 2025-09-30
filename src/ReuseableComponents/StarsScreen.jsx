@@ -12,13 +12,13 @@ const StarsScreen = ({
   return (
     <LinearGradient
       colors={colors}
-      start={{ x: 0, y: 0 }}
+      start={{ x: 0, y: 1 }}
       end={{ x: 0, y: 1 }}
       style={{ flex: 1 }}
     >
       <ImageBackground
         source={require('../assets/stars.png')}
-        style={{ flex: 1, width: wp('100%'), height: hp('100%') }}
+        style={{ flex:1, width: wp('100%'), height: hp('100%') }}
       >
         {children}
       </ImageBackground>
