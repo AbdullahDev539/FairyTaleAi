@@ -129,7 +129,8 @@ const styles = StyleSheet.create({
         fontSize: RFValue(18),
         fontWeight: "700",
         marginBottom: 12,
-        textAlign:"center"
+        textAlign:"center",
+        marginRight:wp('18%'),
     },
     categoryContainer: {
         flexDirection: "row",
@@ -140,8 +141,8 @@ const styles = StyleSheet.create({
     },
     chip: {
         backgroundColor: "#90CDF44D",
-        paddingHorizontal: wp("4%"),
-        paddingVertical: 6,
+        paddingHorizontal: wp("6%"),
+        paddingVertical: hp('1.4%'),
         borderRadius: 20,
         marginRight: 8,
         marginBottom: 8,

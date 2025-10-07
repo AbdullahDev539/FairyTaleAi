@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const SevenDayProgress = () => {
-  const TOTAL_DAYS = 7;
+  const TOTAL_DAYS = 6;
   const [startDate, setStartDate] = useState(null);
   const [daysUsed, setDaysUsed] = useState(0);
 
@@ -34,7 +34,7 @@ const SevenDayProgress = () => {
       {startDate ? (
         <Text style={styles.text}>{TOTAL_DAYS - daysUsed} Days Left</Text>
       ) : (
-        <Text style={styles.text}>Free Trial: 7 Days</Text>
+        <Text style={styles.text}>Free Trial: 6 Days</Text>
       )}
 
       <View style={styles.progressBar}>

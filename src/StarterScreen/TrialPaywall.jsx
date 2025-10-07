@@ -14,8 +14,7 @@ import {
 import CustomButton from '../ReuseableComponents/CustomButton';
 import { RFValue } from 'react-native-responsive-fontsize';
 import StarsScreen from '../ReuseableComponents/StarsScreen';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Shadow } from 'react-native-shadow-2'; 
+import { Shadow } from 'react-native-shadow-2';
 
 const TrialPaywall = ({ navigation, route }) => {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -37,8 +36,16 @@ const TrialPaywall = ({ navigation, route }) => {
         backgroundColor="transparent"
       />
       <StarsScreen>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <View style={{ alignItems: 'center', marginTop: hp('10%') }}>
+        <View
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: hp('10%'),
+            }}
+          >
             <Text style={styles.Text1}>Try Fairy Tales AI</Text>
             <Text style={styles.Text2}>Free for 7 Days</Text>
             <View style={{ marginTop: hp('1%') }}>
@@ -56,9 +63,7 @@ const TrialPaywall = ({ navigation, route }) => {
             {selectedPlan === 'annual' ? (
               <Shadow
                 distance={9}
-                
                 startColor={'rgba(167,139,250,0.5)'}
-                  
                 offset={[0, 0]}
                 radius={wp('4%')}
               >
@@ -110,7 +115,7 @@ const TrialPaywall = ({ navigation, route }) => {
             {selectedPlan === 'monthly' ? (
               <Shadow
                 distance={7}
-                  startColor={'rgba(167,139,250,0.5)'}
+                startColor={'rgba(167,139,250,0.5)'}
                 offset={[0, 0]}
                 radius={wp('4%')}
               >
@@ -190,17 +195,17 @@ const styles = StyleSheet.create({
     height: hp('100%'),
   },
   Text1: {
-    fontSize: RFValue(32),
+    fontSize: RFValue(30),
     fontWeight: 'bold',
     color: '#FFFFFF',
   },
   Text2: {
-    fontSize: RFValue(26),
+    fontSize: RFValue(29),
     fontWeight: '600',
     color: '#A78BFA',
   },
   Text3: {
-    fontSize: RFValue(12),
+    fontSize: RFValue(14),
     color: '#E8E9F1',
     fontWeight: '300',
   },
@@ -212,7 +217,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#182848',
     width: wp('86%'),
-    height: hp('14%'),
+    height: hp('12%'),
     borderRadius: wp('4%'),
     padding: wp('5%'),
     marginBottom: hp('2%'),
@@ -244,7 +249,7 @@ const styles = StyleSheet.create({
     width: wp('6%'),
     height: wp('6%'),
     borderRadius: wp('3%'),
-    backgroundColor: '#9A5BFF',
+    backgroundColor: '#1F2024',
     justifyContent: 'center',
     alignItems: 'center',
   },

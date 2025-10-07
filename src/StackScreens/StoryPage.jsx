@@ -117,7 +117,8 @@ const styles = StyleSheet.create({
     fontSize: RFValue(18),
     fontWeight: "700",
     marginBottom: 2,
-    marginTop: hp('2%')
+    marginTop: hp('2%'),
+    
   },
   duration: {
     fontSize: RFValue(14),

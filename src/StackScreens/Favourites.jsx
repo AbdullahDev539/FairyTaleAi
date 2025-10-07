@@ -1,3 +1,6 @@
+
+
+
 import React, { useState } from 'react';
 import {
   View,
@@ -36,20 +39,21 @@ const Favorites = ({ navigation }) => {
     }
     navigation.navigate('StoryDetail', { story });
   };
+
   const handleDownload = async story => {
     try {
+      // Start download simulation
       setDownloading(prev => ({ ...prev, [story.id]: true }));
       setProgressMap(prev => ({ ...prev, [story.id]: 0 }));
 
       let progress = 0;
       const interval = setInterval(() => {
-        progress += 10;
+        progress += 20; // faster simulation
         setProgressMap(prev => ({ ...prev, [story.id]: progress }));
 
         if (progress >= 100) {
           clearInterval(interval);
 
-          // ✅ file save simulation
           const path = `${RNFS.DocumentDirectoryPath}/${story.id}.txt`;
           RNFS.writeFile(path, story.assets?.text || '', 'utf8')
             .then(() => {
@@ -63,15 +67,11 @@ const Favorites = ({ navigation }) => {
               Alert.alert('Error', 'Failed to save story offline');
             })
             .finally(() => {
+              // stop download
               setDownloading(prev => ({ ...prev, [story.id]: false }));
-              setProgressMap(prev => {
-                const copy = { ...prev };
-                delete copy[story.id];
-                return copy;
-              });
             });
         }
-      }, 3000);
+      }, 1000);
     } catch (err) {
       console.log(err);
       Alert.alert('Error', 'Download failed');
@@ -81,6 +81,8 @@ const Favorites = ({ navigation }) => {
 
   const renderItem = ({ item }) => {
     const progress = progressMap[item.id] || 0;
+    const isDownloading = downloading[item.id];
+    const isDownloaded = !!item.localPath;
 
     return (
       <View style={styles.card}>
@@ -100,17 +102,18 @@ const Favorites = ({ navigation }) => {
             style={styles.playBtn}
             onPress={() => handleProCardPress(item)}
           >
-            <TouchableOpacity style={styles.playView}>
+            <View style={styles.playView}>
               <Ionicons name="play" size={wp('5%')} color="#fff" />
-            </TouchableOpacity>
+            </View>
           </TouchableOpacity>
         </TouchableOpacity>
 
         <View style={styles.infoColumn}>
           <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.category}>{item.categories}</Text>
 
-          {/* ✅ Show progress bar only when downloading */}
-          {downloading[item.id] && (
+          {/*  Progress bar visible while downloading */}
+          {isDownloading && (
             <View style={styles.progressRow}>
               <View style={styles.progressWrapper}>
                 <View
@@ -122,6 +125,7 @@ const Favorites = ({ navigation }) => {
           )}
 
           <View style={styles.buttonsRow}>
+            {/* Remove button stays same */}
             <TouchableOpacity
               style={styles.removeBtn}
               onPress={() => removeFromFavorites(item.id)}
@@ -129,17 +133,25 @@ const Favorites = ({ navigation }) => {
               <Text style={styles.removeText}>Remove</Text>
             </TouchableOpacity>
 
-            {!item.localPath && !downloading[item.id] && (
+            {/* Download button shows only if not downloaded yet */}
+            {!isDownloaded && (
               <UpgradeBtn
-                tittle="Download offline"
+                tittle={'Download offline'}
+                style={{
+                  paddingHorizontal: wp('2.5%'),
+                  opacity: isDownloading ? 0.6 : 1,
+                }}
                 icon={
-                  <Ionicons name="lock-closed" size={wp('3%')} color="#fff" />
+                  <Ionicons name="lock-closed" size={wp('4%')} color="#fff" style={{marginRight:wp('1%')}} />
                 }
-                onPress={() => handleDownload(item)}
+                onPress={() => {
+                  if (!isDownloading) handleDownload(item);
+                }}
               />
             )}
 
-            {item.localPath && (
+            
+            {isDownloaded && (
               <Text
                 style={{
                   color: '#4CAF50',
@@ -186,6 +198,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: RFValue(14),
     fontWeight: '700',
+    marginTop:hp('5%'),
   },
   card: {
     flexDirection: 'row',
@@ -204,14 +217,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+ 
   imageWrapper: {
-    position: 'relative',
-  },
-  storyImage: {
-    width: wp('28%'),
-    height: hp('14%'),
-    borderRadius: 12,
-  },
+  position: 'relative',
+  width: wp('28%'),
+  height: hp('12%'),
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+storyImage: {
+  width: '100%',
+  height: '100%',
+  borderRadius: 12,
+},
   imagePlaceholder: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -230,7 +248,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: RFValue(16),
     fontWeight: 'bold',
-    marginBottom: hp('0.6%'),
+    marginTop:hp('1%'),
+    color:'#1F2024',
   },
   progressRow: {
     flexDirection: 'row',
@@ -239,7 +258,7 @@ const styles = StyleSheet.create({
   },
   progressWrapper: {
     width: wp('50%'),
-    height: hp('1.7%'),
+    height: hp('1.4%'),
     backgroundColor: '#FFFFFF',
     borderRadius: 6,
     overflow: 'hidden',
@@ -250,25 +269,36 @@ const styles = StyleSheet.create({
     backgroundColor: '#A78BFA',
   },
   percentage: {
-    fontSize: RFValue(16),
+    fontSize: RFValue(13),
     fontWeight: 'bold',
     color: '#1F2024',
   },
   buttonsRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    alignItems: 'center',
     marginBottom: hp('1%'),
+    marginTop:hp('2.6%'),
   },
   removeBtn: {
     backgroundColor: '#A78BFA',
-    paddingVertical: hp('0.6%'),
-    paddingHorizontal: wp('3%'),
+    paddingVertical: hp('1%'),
+    paddingHorizontal: wp('4%'),
     borderRadius: 999,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: wp('2%'),
   },
-  removeText: { color: '#fff', fontWeight: '600' },
+  removeText: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: RFValue(12),
+  },
+  category: {
+    fontSize: RFValue(14),
+    color: '#71727A',
+    fontWeight: 'bold',
+  },
 });
 
 export default Favorites;
+

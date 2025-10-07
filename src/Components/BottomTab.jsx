@@ -20,7 +20,7 @@ const getTabBarIcon = (routeName, focused, color) => {
       return (
         <Ionicons
           name={focused ? 'book' : 'book-outline'}
-          size={wp('6%')}
+          size={wp('7%')}
           color={color}
         />
       );
@@ -28,7 +28,7 @@ const getTabBarIcon = (routeName, focused, color) => {
       return (
         <Ionicons
           name={focused ? 'heart' : 'heart-outline'}
-          size={wp('6%')}
+          size={wp('7%')}
           color={color}
         />
       );
@@ -36,7 +36,7 @@ const getTabBarIcon = (routeName, focused, color) => {
       return (
         <Ionicons
           name={focused ? 'person' : 'person-outline'}
-          size={wp('6%')}
+          size={wp('7%')}
           color={color}
         />
       );
@@ -54,8 +54,8 @@ const getTabBarIcon = (routeName, focused, color) => {
               width: wp('3.5%'),
               height: wp('3.5%'),
               position: 'absolute',
-              right: 0,
-              bottom: 0,
+              right: -12,
+              bottom: 12,
             }}
             resizeMode="contain"
           />
@@ -70,17 +70,18 @@ const App = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => {
-        // get the current active screen inside each stack
         const routeName = getFocusedRouteNameFromRoute(route) ?? route.name;
 
         let hideTab = false;
 
-        // 🔹 Hide tab in all HomeStack screens except main Home
         if (route.name === 'Home' && routeName !== 'Home') {
           hideTab = true;
         }
 
-        // 🔹 Hide tab in ProfileStack's VoicePrivacy & PrivacyPolicy
+        if (route.name === 'Favourites' && routeName !== 'Favourites') {
+          hideTab = true;
+        }
+
         if (
           route.name === 'Profile' &&
           (routeName === 'VoicePrivacy' || routeName === 'PrivacyPolicy')
@@ -102,12 +103,13 @@ const App = () => {
           tabBarStyle: hideTab
             ? { display: 'none' }
             : {
-                height: hp('9%'),
+                height: hp('12%'),
                 borderTopLeftRadius: wp('5%'),
                 borderTopRightRadius: wp('5%'),
                 backgroundColor: '#FFFFFF',
                 position: 'absolute',
                 overflow: 'hidden',
+                paddingHorizontal: wp('3%'),
               },
         };
       }}
@@ -121,6 +123,7 @@ const App = () => {
         options={{
           tabBarLabelStyle: { color: '#FA8B8B' },
         }}
+        
       />
     </Tab.Navigator>
   );

@@ -3,16 +3,16 @@
     "PK": "STORY#henny_penny",
     "SK": "META",
     "type": "Story",
-    "story_id": "henny_penny",
-    "title": "Henny Penny",
+    "story_id": "Leo and the Lost Crown",
+    "title": "Leo and the Lost Crown",
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+      "Calm"
+      
     ],
-    "age_min": 3,
-    "age_max": 7,
+    "age_min": 2,
+    "age_max": 3,
     "duration_s": 300,
     "image_url": "https://img.freepik.com/free-vector/hand-drawn-bedtime-stories-illustration_52683-154364.jpg",
     "audio_url": "https://ia800905.us.archive.org/18/items/theraven_poem_librivox/raven_poe_bw_64kb.mp3",
@@ -32,8 +32,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Friendship & Family",
-      "Magic & Fantasy"
+      "Calm"
     ],
     "age_min": 6,
     "age_max": 8,
@@ -55,8 +54,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Bedtime & Sleep"
+      "Calm"
     ],
     "age_min": 3,
     "age_max": 6,
@@ -78,8 +76,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+       "Calm"
     ],
     "age_min": 4,
     "age_max": 7,
@@ -101,8 +98,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+      "Calm"
     ],
     "age_min": 4,
     "age_max": 7,
@@ -124,8 +120,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+       "Calm"
     ],
     "age_min": 4,
     "age_max": 7,
@@ -147,8 +142,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+      "Calm"
     ],
     "age_min": 4,
     "age_max": 7,
@@ -170,8 +164,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+      "Calm"
     ],
     "age_min": 4,
     "age_max": 7,
@@ -193,8 +186,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+       "Calm"
     ],
     "age_min": 4,
     "age_max": 7,
@@ -216,8 +208,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+      "Calm"
     ],
     "age_min": 4,
     "age_max": 7,
@@ -239,8 +230,7 @@
     "status": "PUBLISHED",
     "is_mock": false,
     "categories": [
-      "Animals & Nature",
-      "Adventure & Exploration"
+      "Calm"
     ],
     "age_min": 4,
     "age_max": 7,

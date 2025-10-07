@@ -47,7 +47,7 @@ const ProcessingVoiceScreen = ({ route, navigation }) => {
         </View>
         <Text style={styles.title}>Processing Your Voice...</Text>
         <Text style={[styles.description, { marginTop: hp('1%') }]}>
-          We’re analyzing your recording to create a natural,{' '}
+          We’re analyzing your recording to create a natural,
         </Text>
         <Text style={styles.description}>
           custom-sounding voice. This should only take a
@@ -59,7 +59,7 @@ const ProcessingVoiceScreen = ({ route, navigation }) => {
           <Text
             style={{
               color: '#494A50',
-              fontSize: RFValue(14),
+              fontSize: RFValue(13),
               fontWeight: '400',
             }}
           >
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   description: {
     color: '#71727A',
-    fontSize: RFValue(14),
+    fontSize: RFValue(12.5),
     fontWeight: '400',
     marginHorizontal: wp('3%'),
     textAlign: 'center',
@@ -114,14 +114,14 @@ const styles = StyleSheet.create({
     borderRadius: wp('8%'),
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: hp('12%'),
+    marginTop: hp('28%'),
     marginBottom: hp('5%'),
   },
   exitText: { fontSize: RFValue(16), color: '#E63946', fontWeight: '600' },
   img: {
     width: wp('26%'),
     height: hp('16%'),
-    marginTop: hp('16%'),
+    marginTop: hp('20%'),
   },
   lockView: {
     flexDirection: 'row',

@@ -72,7 +72,7 @@ const EnterCodeScreen = ({ route, navigation }) => {
           )}
         />
 
-        <TouchableOpacity style={{ marginTop: hp('12%') }}>
+        <TouchableOpacity style={{ marginTop: hp('8%') }}>
           <Text
             style={{
               color: '#A78BFA',
@@ -105,13 +105,13 @@ const styles = StyleSheet.create({
     marginTop: hp('10%'),
   },
   title: {
-    fontSize: RFValue(28),
+    fontSize: RFValue(26),
     fontWeight: 'bold',
     color: '#2F3036',
   },
   description: {
-    fontSize: RFValue(14),
-    fontWeight: '600',
+    fontSize: RFValue(13),
+    fontWeight: '500',
     color: '#71727A',
   },
   codeFieldroot: {

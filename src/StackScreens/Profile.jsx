@@ -45,6 +45,7 @@ export default function ProfileUpload() {
 
   return (
     <GradientWrapper>
+       <View style={{paddingVertical:hp('4%')}}>
       {/* Title */}
       <Text style={styles.profileText}>Profile Settings</Text>
 
@@ -155,6 +156,7 @@ export default function ProfileUpload() {
           </View>
         </View>
       </Modal>
+      </View>
     </GradientWrapper>
   );
 }
@@ -176,17 +178,17 @@ const styles = StyleSheet.create({
   },
   editIcon: {
     position: 'absolute',
-    bottom: hp('1.2%'),
-    right: wp('2.5%'),
+    bottom: hp('2%'),
+    right: wp('3.5%'),
     backgroundColor: '#A78BFA',
     borderRadius: 999,
-    padding: wp('2%'),
+    padding: wp('1.5%'),
   },
   nameText: {
     fontSize: RFValue(15),
     fontWeight: '700',
     color: '#000',
-    marginTop: hp('1%'),
+    // marginTop: hp('1%'),
   },
   usernameText: {
     fontSize: RFValue(12),
@@ -219,7 +221,7 @@ const styles = StyleSheet.create({
     borderColor: '#F87171',
     borderRadius: 999,
     marginTop: hp('2%'),
-    marginBottom: hp('8%'),
+    marginBottom: hp('10%'),
     width: wp('87%'),
     height: hp('6%'),
     alignSelf: 'center',

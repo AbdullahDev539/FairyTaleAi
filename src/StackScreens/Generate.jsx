@@ -45,10 +45,11 @@ const GenerateScreen = () => {
           />
         </View>
         <Text style={styles.title}>Personalized Storytime</Text>
-        <Text style={styles.description}>
-          Create magical stories featuring your child’s name, favorite animal,
-          and theme.
+        <Text style={[styles.description,{marginTop: hp('1%')}]}>
+          Create magical stories featuring your child’s name,
         </Text>
+        <Text style={styles.description}> favorite animal,
+          and theme.</Text>
 
         <Text style={styles.label}>Child Name</Text>
         <LinearGradient
@@ -187,8 +188,8 @@ const styles = StyleSheet.create({
   },
   description: {
     color: '#71727A',
-    fontSize: RFValue(14),
-    marginTop: hp('1%'),
+    fontSize: RFValue(13),
+    
     fontWeight: 400,
     textAlign: 'center',
   },

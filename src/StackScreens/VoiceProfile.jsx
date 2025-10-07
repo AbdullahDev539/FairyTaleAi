@@ -275,6 +275,7 @@ const SavedVoicesScreen = ({ navigation }) => {
           />
         )}
       </View>
+      <View style={{ marginBottom: hp('5%') }} />
     </GradientWrapper>
   );
 };
@@ -297,9 +298,9 @@ const styles = StyleSheet.create({
   },
   card: {
     alignSelf: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F8F9FE',
     padding: wp('4%'),
-    marginBottom: hp('3%'),
+    marginBottom: hp('1%'),
     borderRadius: wp('4%'),
     shadowColor: '#000',
     shadowOpacity: 0.1,
@@ -331,7 +332,7 @@ const styles = StyleSheet.create({
   },
   progressBar: {
     width: '100%',
-    height: hp('1%'),
+    height: hp('1.5%'),
     backgroundColor: '#E5E7EB',
     borderRadius: wp('1.5%'),
     overflow: 'hidden',
@@ -339,22 +340,22 @@ const styles = StyleSheet.create({
   progressFill: { height: '100%', backgroundColor: '#A78BFA' },
   thumb: {
     position: 'absolute',
-    width: wp('7%'),
-    height: wp('7%'),
-    borderRadius: wp('4%'),
-    backgroundColor: '#F2F2F2',
+    width: wp('7.5%'),
+    height: wp('7.5%'),
+    borderRadius: wp('4.25%'),
+    backgroundColor: '#FFFfFF',
     borderWidth: 1.5,
     borderColor: '#FFFFFF33',
-    top: hp('0%'),
+    top: hp('-0.1%'),
     justifyContent: 'center',
     alignItems: 'center',
-    transform: [{ translateX: -wp('4%') }, { translateY: -wp('-1%') }],
+    transform: [{ translateX: -wp('5%') }, { translateY: -wp('-1%') }],
   },
   innerThumb: {
-    width: wp('2%'),
-    height: wp('2%'),
-    borderRadius: wp('2.5%'),
-    backgroundColor: '#7C3AED',
+    width: wp('3%'),
+    height: wp('3%'),
+    borderRadius: wp('3%'),
+    backgroundColor: '#A78BFA',
   },
   controls: {
     flexDirection: 'row',

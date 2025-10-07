@@ -83,9 +83,9 @@ const CheckEmail = ({ route, navigation }) => {
         >
           <Text
             style={{
-              color: '#71727A',
-              fontSize: RFValue(12),
-              fontWeight: '400',
+              color: '#8F9098',
+              fontSize: RFValue(13),
+              fontWeight: '600',
             }}
           >
             Entered the wrong email?
@@ -93,7 +93,7 @@ const CheckEmail = ({ route, navigation }) => {
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Text
               style={{
-                fontSize: RFValue(12),
+                fontSize: RFValue(13),
                 color: '#A78BFA',
                 fontWeight: '600',
                 marginLeft: wp('1%'),
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   description: {
     color: '#71727A',
     fontSize: RFValue(12),
-    fontWeight: 'semi-bold',
+    fontWeight: '600',
     marginTop: hp('2%'),
   },
 });

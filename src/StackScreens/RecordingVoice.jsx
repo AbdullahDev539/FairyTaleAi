@@ -211,7 +211,7 @@ const RecordingVoice = ({ navigation }) => {
             Hello, my name is John
           </Text>
           <Text style={styles.firstText}>and I love learning new</Text>
-          <Text style={styles.firstText}>things.</Text>
+          <Text style={[styles.firstText,{alignSelf:'flex-start',marginLeft:wp('13.5%')}]}>things.</Text>
           <Text style={[styles.secondText, { marginTop: hp('3%') }]}>
             The quick brown fox
           </Text>
@@ -220,16 +220,16 @@ const RecordingVoice = ({ navigation }) => {
             Can you believe how{' '}
           </Text>
           <Text style={styles.ThirdText}>
-            amazing today’s
+            amazing today’ </Text>
             <Text style={styles.ThirdText}>weather is?</Text>
-          </Text>
+          
         </View>
 
         {/* WaveForm */}
         <ImageBackground
           source={waveform}
           resizeMode="cover"
-          style={{ marginTop: hp('17%') }}
+          style={{ marginTop: hp('2%'),width:wp('100%'),height:hp('40%') }}
         >
           {/* Buttons */}
           <View style={styles.buttonContainer}>
@@ -280,16 +280,12 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     marginTop: hp('10%'),
   },
-  waveform: {
-    position: 'absolute',
-    marginTop: hp('16%'),
-    left: wp('7%'),
-  },
+ 
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    marginTop: hp('8%'),
+    marginTop: hp('16%'),
     marginBottom: hp('3%'),
   },
   leftbutton: {
@@ -332,17 +328,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   firstText: {
-    fontSize: RFValue(24),
+    fontSize: RFValue(22),
     fontWeight: '600',
     color: '#8F9098',
   },
   secondText: {
-    fontSize: RFValue(24),
+    fontSize: RFValue(22),
     fontWeight: 'bold',
     color: '#1F2024',
   },
   ThirdText: {
-    fontSize: RFValue(24),
+    fontSize: RFValue(22),
     fontWeight: '600',
     color: '#71727A',
   },

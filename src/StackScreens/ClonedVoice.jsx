@@ -140,8 +140,9 @@ const ClonedVoiceScreen = ({ route, navigation }) => {
         <Text style={styles.title}>Your voice has been </Text>
         <Text style={styles.title}>securely cloned!</Text>
         <Text style={styles.description}>
-          You can delete your voice profile anytime in Settings.
+          You can delete your voice profile anytime in
         </Text>
+        <Text style={styles.description}> Settings.</Text>
 
         {/* Waveform */}
         <View style={styles.waveformBox}>
@@ -226,9 +227,10 @@ const ClonedVoiceScreen = ({ route, navigation }) => {
         </View>
 
         <Text style={[styles.description, { marginTop: hp('2%') }]}>
-          Here’s a preview of how your custom voice sounds. Play it back and see
-          the magic.
+          Here’s a preview of how your custom voice sounds. 
         </Text>
+        <Text style={styles.description}>Play it back and see
+          the magic.</Text>
 
         <TouchableOpacity
           onPress={() =>
@@ -271,7 +273,7 @@ const styles = StyleSheet.create({
   checkedimg: {
     width: wp('20%'),
     height: hp('16%'),
-    marginTop: hp('4%'),
+    marginTop: hp('12%'),
   },
   title: {
     fontSize: RFValue(18),
@@ -280,9 +282,9 @@ const styles = StyleSheet.create({
     color: '#1F2024',
   },
   description: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(12),
     color: '#71727A',
-    fontWeight: '600',
+    fontWeight: '400',
   },
   waveformBox: {
     width: '100%',
@@ -327,7 +329,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: hp('2%'),
-    marginBottom: hp('13%'),
+    marginBottom: hp('2%'),
   },
   exitText: {
     fontSize: RFValue(16),
@@ -348,4 +350,14 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: '500',
   },
+  timerLeft:{
+     color:'#A78BFA',
+      fontSize:RFValue(13),
+      fontWeight:'bold',
+  },
+  timerRight:{
+      color: '#1F2024',
+        fontSize:RFValue(13),
+      fontWeight:'bold',
+  }
 });

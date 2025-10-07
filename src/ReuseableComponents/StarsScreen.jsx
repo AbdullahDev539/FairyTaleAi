@@ -12,13 +12,14 @@ const StarsScreen = ({
   return (
     <LinearGradient
       colors={colors}
-      start={{ x: 0, y: 1 }}
-      end={{ x: 0, y: 1 }}
+      start={{ x: 0.5, y: 0 }}
+      end={{ x: 0.5, y: 1 }}
       style={{ flex: 1 }}
     >
       <ImageBackground
         source={require('../assets/stars.png')}
-        style={{ flex:1, width: wp('100%'), height: hp('100%') }}
+        style={{ flex: 1, width: wp('100%'), height: hp('100%') }}
+         blurRadius={2}
       >
         {children}
       </ImageBackground>
