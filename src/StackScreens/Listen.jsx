@@ -21,7 +21,7 @@ import CustomButton from '../ReuseableComponents/CustomButton';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
 import { RFValue } from 'react-native-responsive-fontsize';
-
+const backbutton = require('../assets/Onboardingimg/LeftButton2.png');
 const left = require('../assets/Onboardingimg/VoiceLeft.png');
 const right = require('../assets/Onboardingimg/VoiceRight.png');
 
@@ -109,7 +109,11 @@ const Listen = ({ navigation, route }) => {
                 onPress={() => navigation.goBack()}
                 style={styles.btn}
               >
-                <Ionicons name="chevron-back" size={24} color="#fff" />
+                <Image
+                  source={backbutton}
+                  style={styles.arrowimg}
+                  resizeMode="contain"
+                />
               </TouchableOpacity>
               <CustomButton
                 icon={<Ionicons name="book-outline" size={24} color="#fff" />}
@@ -342,11 +346,15 @@ const styles = StyleSheet.create({
   header: { flexDirection: 'row', justifyContent: 'space-between' },
   btn: {
     backgroundColor: 'rgba(0,0,0,0.4)',
-    width: wp('12%'),
-    borderRadius: wp('24%'),
-    height: hp('5%'),
+    width: wp('11%'),
+    borderRadius: wp('11%'),
+    height: wp('11%'),
     alignItems: 'center',
     justifyContent: 'center',
+  },
+     arrowimg: {
+    width: wp('5%'),
+    height: hp('5%'),
   },
   card: { marginTop: hp('2%'), alignItems: 'center' },
   image: { width: wp('85%'), height: hp('30%'), borderRadius: 16 },
@@ -356,7 +364,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  duration: { color: '#ccc', marginTop: 4 },
+  duration: { color: '#ccc' },
   slide: {
     justifyContent: 'center',
     alignItems: 'center',

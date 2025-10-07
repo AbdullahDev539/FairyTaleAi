@@ -12,7 +12,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import CustomButton from '../ReuseableComponents/CustomButton';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { RFValue } from "react-native-responsive-fontsize";
-
+const backbutton = require('../assets/Onboardingimg/LeftButton.png');
 const StoryPage = ({ navigation, route }) => {
   const { story } = route.params;
 
@@ -33,12 +33,17 @@ const StoryPage = ({ navigation, route }) => {
       {/* Header */}
       <View style={styles.iconWrapper}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backIcon}>
-          <Ionicons name="chevron-back" size={24} color="#2F3036" />
+          {/* <Ionicons name="chevron-back" size={24} color="#2F3036" /> */}
+            <Image
+                         source={backbutton}
+                         style={styles.arrowimg}
+                         resizeMode="contain"
+                       />
         </TouchableOpacity>
         <CustomButton
           title="Listen"
           icon={<Ionicons name="headset" size={24} color="#fff" />}
-          style={{ width: wp('27%'), height: hp('6%'), paddingHorizontal: wp('%') }}
+          style={{ width: wp('30%'), height: hp('6%'), paddingHorizontal: wp('1%') }}
           onPress={() => navigation.navigate('Listen', { story })}
         />
       </View>
@@ -92,11 +97,15 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     backgroundColor: "#FFFFFF",
-    width: wp("9.6%"),
-    height: hp("4.4%"),
-    borderRadius: wp("9.6%"),
+    width: wp("11%"),
+    height: wp("11%"),
+    borderRadius: wp("5.5%"),
     justifyContent: "center",
     alignItems: "center",
+  },
+   arrowimg: {
+    width: wp('6%'),
+    height: hp('6%'),
   },
   card: {
     marginTop: hp("2%"),
