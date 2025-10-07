@@ -262,7 +262,7 @@ storyImage: {
     backgroundColor: '#FFFFFF',
     borderRadius: 6,
     overflow: 'hidden',
-    marginRight: wp('3%'),
+    marginRight: wp('1.5%'),
   },
   progressFill: {
     height: '100%',
@@ -277,7 +277,7 @@ storyImage: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: hp('1%'),
-    marginTop:hp('2.6%'),
+    marginTop:hp('0.5%'),
   },
   removeBtn: {
     backgroundColor: '#A78BFA',
@@ -296,7 +296,8 @@ storyImage: {
   category: {
     fontSize: RFValue(14),
     color: '#71727A',
-    fontWeight: 'bold',
+    fontWeight: '600',
+    marginTop:hp('0.5%'),
   },
 });
 

@@ -141,8 +141,8 @@ const styles = StyleSheet.create({
     },
     chip: {
         backgroundColor: "#90CDF44D",
-        paddingHorizontal: wp("6%"),
-        paddingVertical: hp('1.4%'),
+        paddingHorizontal: wp("7%"),
+        paddingVertical: hp('1.2%'),
         borderRadius: 20,
         marginRight: 8,
         marginBottom: 8,
@@ -152,7 +152,8 @@ const styles = StyleSheet.create({
     },
     chipText: {
         color: "#2F3036",
-        fontSize: 12
+        fontSize: RFValue(12),
+        fontWeight:'semibold',
     },
     description: {
         fontWeight: 400,

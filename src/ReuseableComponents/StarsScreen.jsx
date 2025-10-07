@@ -19,7 +19,7 @@ const StarsScreen = ({
       <ImageBackground
         source={require('../assets/stars.png')}
         style={{ flex: 1, width: wp('100%'), height: hp('100%') }}
-         blurRadius={2}
+         blurRadius={1}
       >
         {children}
       </ImageBackground>
