@@ -91,7 +91,7 @@ const StoryDetail = ({ route, navigation }) => {
             </TouchableOpacity>
 
 
-            <CustomButton title="Listen" onPress={() => navigation.navigate('Listen', { story })}
+            <CustomButton title="Listen" onPress={() => navigation.navigate("Listen", { story })}
                 icon={<Ionicons name="headset" size={22} color="#fff" />}
                  
                 style={styles.CustomBtn}
