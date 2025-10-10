@@ -23,6 +23,10 @@ import HalfCircleProgress from '../Components/HalfCircleProgress';
 import { useApp } from '../Context/RainbowProgress';
 import LinearGradient from 'react-native-linear-gradient';
 import { Shadow } from 'react-native-shadow-2';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import CustomButton from '../ReuseableComponents/CustomButton';
+const M1 = require('../assets/M1.png');
+const M2 = require('../assets/M2.png');
 const CATEGORY_FILTERS = [
   'Bedtime & Sleep',
   'Adventure & Exploration',
@@ -46,7 +50,8 @@ const DURATION_FILTERS = [
 const Home = ({ navigation }) => {
   const { playsUsed, incrementPlay } = useApp();
   const { favorites } = useFavorites();
-
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible2, setModalVisible2] = useState(false);
   const TOTAL_DAYS = 6;
   const [startDate, setStartDate] = useState(null);
   const [daysUsed, setDaysUsed] = useState(0);
@@ -186,7 +191,7 @@ const Home = ({ navigation }) => {
                   {
                     borderWidth: 3,
                     borderColor: '#A78BFA',
-                    borderRadius:wp('3%'),
+                    borderRadius: wp('3%'),
                   },
                 ]}
                 resizeMode="cover"
@@ -205,7 +210,7 @@ const Home = ({ navigation }) => {
             {/* Pro badge */}
             {story.isPro && (
               <LinearGradient
-                colors={[ '#FA8B8B','#A78BFA']}
+                colors={['#FA8B8B', '#A78BFA']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.proBadge}
@@ -254,7 +259,6 @@ const Home = ({ navigation }) => {
       <View style={styles.cardContent}>
         <Text style={styles.title}>{story.title}</Text>
         <Text style={styles.category}>{story.categories}</Text>
-      
       </View>
     </TouchableOpacity>
   );
@@ -359,14 +363,15 @@ const Home = ({ navigation }) => {
         }}
       >
         <View style={{ marginTop: hp('1.5%'), marginLeft: wp('3%') }}>
+          <TouchableOpacity  onPress={() => setModalVisible(true)}>
           <Text style={styles.welcome}>Welcome John</Text>
+          </TouchableOpacity>
           <Text style={styles.welcomeSubheading}>
             Magical stories for every night
           </Text>
         </View>
         <View style={{ marginRight: wp('3%') }}>
           <HalfCircleProgress playsUsed={playsUsed} />
-
         </View>
       </View>
 
@@ -374,7 +379,11 @@ const Home = ({ navigation }) => {
       <View style={styles.freeProgressbar}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <View>
-            <Text style={{ fontWeight: 'bold', fontSize: RFValue(16) }}>Free Trial</Text>
+            <TouchableOpacity onPress={() => setModalVisible2(true)}>
+            <Text style={{ fontWeight: 'bold', fontSize: RFValue(16) }}>
+              Free Trial
+            </Text>
+            </TouchableOpacity>
             {startDate ? (
               <Text style={{ color: '#A78BFA' }}>
                 {Math.max(TOTAL_DAYS - daysUsed, 0)} Days Left
@@ -396,6 +405,7 @@ const Home = ({ navigation }) => {
             onPress={() =>
               navigation.navigate('TrialPaywall', { type: 'upgrade' })
             }
+            
           />
         </View>
         <View style={styles.progressBar}>
@@ -464,24 +474,107 @@ const Home = ({ navigation }) => {
         }}
         renderItem={({ item }) => <StoryCard story={item} />}
       />
-
-      {/* Trial Ended Modal */}
-      <Modal visible={trialEnded} transparent animationType="fade">
+         
+      {/*  Modal 1 */}
+      <Modal
+        visible={modalVisible}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setModalVisible(false)}
+      >
         <View style={styles.modalOverlay}>
-          <View style={styles.modalBox}>
-            <Text style={styles.modalTitle}>Trial Ended</Text>
-            <Text style={styles.modalMsg}>
-              Your 7-day free trial has expired. Upgrade now to continue
-              enjoying stories.
-            </Text>
-            <UpgradeBtn
-              tittle="Upgrade Now"
-              onPress={() => {
-                setTrialEnded(false);
-                navigation.navigate('TrialPaywall');
+          <LinearGradient
+            style={styles.modalContent}
+            colors={['#FFF6D6', '#F4F2EB', '#FFFBEB']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+          >
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                marginTop: hp('1%'),
               }}
-            />
-          </View>
+            >
+              <Text style={styles.modalTitle}>Reminder</Text>
+              
+              <TouchableOpacity
+                style={styles.closeBtn}
+                onPress={() => setModalVisible(false)}
+              >
+                <Ionicons name="close" size={22} color="#333" />
+              </TouchableOpacity>
+            </View>
+             <View style={{justifyContent:'center',flex:1,alignItems:'center'}}>
+             <Image
+                source={M1}
+                style={{width:wp('20%'),height:hp('12%'),alignItems:'center'}}
+                resizeMode='contain'
+              />
+              <Text style={styles.modalTitle2}>Your trial ends <Text style={{color:'#A78BFA'}}>tomorrow</Text></Text>
+              <Text style={[styles.modaldescription,{marginTop:hp('0.6%')}]}>Keep bedtime magical with </Text>
+              <Text style={styles.modaldescription}>unlimited stories in your voice.</Text>
+              </View>
+           
+
+            <View style={styles.modalBtns}>
+              <TouchableOpacity style={styles.useBtn}>
+                <Text style={[styles.btnText,{color:'#1F2024'}]}>Switch to monthly</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.selectBtn}>
+                <Text style={styles.btnText}>Keep Subscription</Text>
+              </TouchableOpacity>
+            </View>
+          </LinearGradient>
+        </View>
+      </Modal>
+      {/* Modal 2 */}
+      <Modal
+        visible={modalVisible2}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setModalVisible2(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <LinearGradient
+            style={styles.modalContent}
+            colors={['#FFF6D6', '#F4F2EB', '#FFFBEB']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+          >
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                marginTop: hp('1%'),
+              }}
+            >
+              <Text style={styles.modalTitle}>Upgrade</Text>
+              
+              <TouchableOpacity
+                style={styles.closeBtn}
+                onPress={() => setModalVisible2(false)}
+              >
+                <Ionicons name="close" size={22} color="#333" />
+              </TouchableOpacity>
+            </View>
+             <View style={{justifyContent:'center',flex:1,alignItems:'center'}}>
+             <Image
+                source={M2}
+                style={{width:wp('20%'),height:hp('10%'),alignItems:'center'}}
+                resizeMode='contain'
+              />
+              <Text style={styles.modalTitle2}>Your trial has <Text style={{color:'#A78BFA'}}>ended</Text></Text>
+              <Text style={[styles.modaldescription,{marginTop:hp('0.6%')}]}>Unlock unlimited bedtime with Pro </Text>
+
+              </View>
+           
+
+             <CustomButton
+               title="Upgrade Now"
+                style={{marginBottom:hp('5%')}}
+             />
+          </LinearGradient>
         </View>
       </Modal>
     </GradientWrapper>
@@ -584,7 +677,7 @@ const styles = StyleSheet.create({
   },
   cardContent: { padding: 10 },
   title: { fontSize: RFValue(14), fontWeight: '700', color: '#1F2024' },
-  category: { fontSize:RFValue(14), color: '#8F9098',marginTop:hp('0.5%') },
+  category: { fontSize: RFValue(14), color: '#8F9098', marginTop: hp('0.5%') },
   searchContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -641,31 +734,70 @@ const styles = StyleSheet.create({
   tabBtnActive: { backgroundColor: '#A78BFA' },
   tabText: { color: '#71727A', fontSize: RFValue(12), fontWeight: '700' },
   tabTextActive: { color: '#FFFFFF', fontWeight: '600' },
+
+  closeBtn: {
+    alignSelf: 'flex-end',
+    borderWidth: 1.5,
+    borderRadius: 999,
+    marginRight: wp('1%'),
+    marginBottom: hp('1.4%'),
+  },
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
+  
   },
-  modalBox: {
-    width: wp('80%'),
-    backgroundColor: '#fff',
+  modalContent: {
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     padding: 20,
-    borderRadius: 16,
-    alignItems: 'center',
+      height:hp('52%'),
+    // maxHeight: hp('55%'),
+    
   },
   modalTitle: {
     fontSize: RFValue(18),
     fontWeight: '700',
-    marginBottom: 10,
-    color: '#1F2024',
-  },
-  modalMsg: {
-    fontSize: RFValue(14),
-    color: '#555',
+    color:'#000000',
+    marginBottom: 16,
     textAlign: 'center',
-    marginBottom: 20,
+    marginRight: wp('22%'),
   },
+   modalTitle2: {
+    fontSize: RFValue(23),
+    fontWeight: 'bold',
+    marginTop:hp('1%'),
+    color:'#2F3036',
+  },
+  modaldescription:{
+    color:'#71727A',
+    fontSize:RFValue(16),
+    fontWeight:'semibold',
+  },
+  modalBtns: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 16,
+    marginBottom: 34,
+  },
+  useBtn: {
+    backgroundColor: '#FEC89A',
+    flex: 1,
+    marginRight: 10,
+    paddingVertical: 12,
+    borderRadius: 20,
+    alignItems: 'center',
+  },
+  selectBtn: {
+    backgroundColor: '#A78BFA',
+    flex: 1,
+    marginLeft: 10,
+    paddingVertical: 12,
+    borderRadius: 20,
+    alignItems: 'center',
+  },
+  btnText: { color: '#fff', fontWeight: '600', fontSize: 14 },
 });
 
 export default Home;
